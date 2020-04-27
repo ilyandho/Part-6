@@ -21,7 +21,7 @@ const notificationReducer = (state = innitialNotification, action) => {
 };
 
 export const removeNotification = () => {
-  return { type: 'REMOVE' };
+  return async (dispatch) => dispatch({ type: 'REMOVE' });
 };
 
 export default notificationReducer;

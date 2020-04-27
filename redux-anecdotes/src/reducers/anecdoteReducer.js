@@ -37,7 +37,4 @@ export const create = (anecdote) => {
   };
 };
 
-export const sortByVotes = (array) => {
-  return array.sort((a, b) => b.votes - a.votes);
-};
 export default anecdoteReducer;

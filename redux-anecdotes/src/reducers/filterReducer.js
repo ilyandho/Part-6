@@ -10,10 +10,7 @@ const filterReducer = (state = innitialFilter, action) => {
 };
 
 export const setFilter = (filter) => {
-  return {
-    type: 'FILTER',
-    data: filter,
-  };
+  return async (dispatch) => dispatch({ type: 'FILTER', data: filter });
 };
 
 export default filterReducer;
