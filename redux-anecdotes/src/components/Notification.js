@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { removeNotification } from '../reducers/notificationReducer';
 
-const Notification = ({ notification, style }) => {
-  if (notification) {
-    setTimeout(() => removeNotification(), 5000);
-  }
+const Notification = ({ notification, style, removeNotification }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => removeNotification(), 5000);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [notification]);
+
   console.log(notification);
 
   return <div style={style}>{notification}</div>;
